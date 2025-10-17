@@ -179,12 +179,42 @@ const AddRoom = () => {
   };
 
   return (
-    <Box>
-      <Typography variant="h4" component="h1" gutterBottom>
-        Add New Room
-      </Typography>
+    <Box sx={{ py: 4 }}>
+      {/* Header Section */}
+      <Box sx={{ mb: 4, textAlign: 'center' }}>
+        <Typography 
+          variant="h3" 
+          component="h1" 
+          gutterBottom
+          sx={{ 
+            fontWeight: 700,
+            color: '#1e293b',
+            letterSpacing: '-0.025em',
+            mb: 2
+          }}
+        >
+          Add New Room
+        </Typography>
+        <Typography 
+          variant="body1" 
+          color="text.secondary"
+          sx={{ fontSize: '1.1rem', maxWidth: 600, mx: 'auto' }}
+        >
+          Create a new room entry with all the necessary details including amenities and pricing.
+        </Typography>
+      </Box>
       
-      <Paper sx={{ p: 3, maxWidth: 800, mx: 'auto' }}>
+      <Paper 
+        sx={{ 
+          p: 4, 
+          maxWidth: 900, 
+          mx: 'auto',
+          borderRadius: 3,
+          background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
+          border: '1px solid rgba(226, 232, 240, 0.8)',
+          boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+        }}
+      >
         <form onSubmit={handleSubmit}>
           <Grid container spacing={3}>
             <Grid item xs={12} md={6}>
@@ -294,12 +324,30 @@ const AddRoom = () => {
             </Grid>
           </Grid>
           
-          <Box sx={{ mt: 4, display: 'flex', gap: 2, justifyContent: 'flex-end' }}>
+          <Box sx={{ 
+            mt: 5, 
+            display: 'flex', 
+            gap: 2, 
+            justifyContent: 'center',
+            pt: 3,
+            borderTop: '1px solid rgba(226, 232, 240, 0.8)',
+          }}>
             <Button
               variant="outlined"
               onClick={handleCancel}
               disabled={loading}
               size="large"
+              sx={{
+                minWidth: 140,
+                py: 1.5,
+                borderRadius: 2,
+                borderColor: '#cbd5e1',
+                color: '#64748b',
+                '&:hover': {
+                  borderColor: '#94a3b8',
+                  backgroundColor: 'rgba(100, 116, 139, 0.04)',
+                },
+              }}
             >
               Cancel
             </Button>
@@ -308,7 +356,23 @@ const AddRoom = () => {
               variant="contained"
               disabled={loading}
               size="large"
-              startIcon={loading ? <CircularProgress size={20} /> : null}
+              sx={{
+                minWidth: 140,
+                py: 1.5,
+                borderRadius: 2,
+                background: 'linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)',
+                boxShadow: '0 4px 6px -1px rgba(37, 99, 235, 0.3)',
+                '&:hover': {
+                  background: 'linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%)',
+                  boxShadow: '0 10px 15px -3px rgba(37, 99, 235, 0.4)',
+                  transform: 'translateY(-1px)',
+                },
+                '&:disabled': {
+                  background: '#cbd5e1',
+                  color: '#94a3b8',
+                },
+              }}
+              startIcon={loading ? <CircularProgress size={20} color="inherit" /> : null}
             >
               {loading ? 'Adding Room...' : 'Add Room'}
             </Button>

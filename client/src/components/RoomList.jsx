@@ -139,16 +139,64 @@ const RoomList = () => {
 
   return (
     <Box>
-      <Typography variant="h4" component="h1" gutterBottom>
-        Room Management
-      </Typography>
+      {/* Header Section */}
+      <Box sx={{ mb: 4 }}>
+        <Typography 
+          variant="h3" 
+          component="h1" 
+          gutterBottom
+          sx={{ 
+            fontWeight: 700,
+            color: '#1e293b',
+            letterSpacing: '-0.025em',
+            mb: 1
+          }}
+        >
+          Room Management
+        </Typography>
+        <Typography 
+          variant="body1" 
+          color="text.secondary"
+          sx={{ fontSize: '1.1rem' }}
+        >
+          Manage your hotel rooms with ease. Add, edit, and track room availability.
+        </Typography>
+      </Box>
 
       {/* Filters and Search */}
-      <Paper sx={{ p: 2, mb: 3 }}>
-        <Typography variant="h6" gutterBottom>
-          <FilterIcon sx={{ mr: 1, verticalAlign: 'middle' }} />
-          Filters & Search
-        </Typography>
+      <Paper 
+        sx={{ 
+          p: 3, 
+          mb: 4,
+          borderRadius: 3,
+          background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
+          border: '1px solid rgba(226, 232, 240, 0.8)',
+        }}
+      >
+        <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              backgroundColor: 'rgba(37, 99, 235, 0.1)',
+              borderRadius: 2,
+              px: 2,
+              py: 1,
+              mr: 2,
+            }}
+          >
+            <FilterIcon sx={{ mr: 1, color: '#2563eb', fontSize: 20 }} />
+          </Box>
+          <Typography 
+            variant="h5" 
+            sx={{ 
+              fontWeight: 600,
+              color: '#1e293b',
+            }}
+          >
+            Filters & Search
+          </Typography>
+        </Box>
         
         <Grid container spacing={2} alignItems="center">
           <Grid item xs={12} md={3}>
@@ -227,50 +275,126 @@ const RoomList = () => {
       </Paper>
 
       {/* Room Statistics */}
-      <Grid container spacing={2} sx={{ mb: 3 }}>
-        <Grid item xs={12} md={3}>
-          <Card>
-            <CardContent>
-              <Typography color="textSecondary" gutterBottom>
+      <Grid container spacing={3} sx={{ mb: 4 }}>
+        <Grid item xs={12} sm={6} md={3}>
+          <Card 
+            sx={{ 
+              height: '100%',
+              background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+              color: 'white',
+              position: 'relative',
+              overflow: 'hidden',
+              '&:before': {
+                content: '""',
+                position: 'absolute',
+                top: 0,
+                right: 0,
+                width: '100px',
+                height: '100px',
+                background: 'rgba(255,255,255,0.1)',
+                borderRadius: '50%',
+                transform: 'translate(30px, -30px)',
+              }
+            }}
+          >
+            <CardContent sx={{ position: 'relative', zIndex: 1 }}>
+              <Typography variant="body2" sx={{ opacity: 0.9, mb: 1 }}>
                 Total Rooms
               </Typography>
-              <Typography variant="h5">
+              <Typography variant="h4" sx={{ fontWeight: 700 }}>
                 {rooms.length}
               </Typography>
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={12} md={3}>
-          <Card>
-            <CardContent>
-              <Typography color="textSecondary" gutterBottom>
+        <Grid item xs={12} sm={6} md={3}>
+          <Card 
+            sx={{ 
+              height: '100%',
+              background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
+              color: 'white',
+              position: 'relative',
+              overflow: 'hidden',
+              '&:before': {
+                content: '""',
+                position: 'absolute',
+                top: 0,
+                right: 0,
+                width: '100px',
+                height: '100px',
+                background: 'rgba(255,255,255,0.1)',
+                borderRadius: '50%',
+                transform: 'translate(30px, -30px)',
+              }
+            }}
+          >
+            <CardContent sx={{ position: 'relative', zIndex: 1 }}>
+              <Typography variant="body2" sx={{ opacity: 0.9, mb: 1 }}>
                 Available Rooms
               </Typography>
-              <Typography variant="h5" color="success.main">
+              <Typography variant="h4" sx={{ fontWeight: 700 }}>
                 {rooms.filter(room => room.availability).length}
               </Typography>
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={12} md={3}>
-          <Card>
-            <CardContent>
-              <Typography color="textSecondary" gutterBottom>
+        <Grid item xs={12} sm={6} md={3}>
+          <Card 
+            sx={{ 
+              height: '100%',
+              background: 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)',
+              color: 'white',
+              position: 'relative',
+              overflow: 'hidden',
+              '&:before': {
+                content: '""',
+                position: 'absolute',
+                top: 0,
+                right: 0,
+                width: '100px',
+                height: '100px',
+                background: 'rgba(255,255,255,0.1)',
+                borderRadius: '50%',
+                transform: 'translate(30px, -30px)',
+              }
+            }}
+          >
+            <CardContent sx={{ position: 'relative', zIndex: 1 }}>
+              <Typography variant="body2" sx={{ opacity: 0.9, mb: 1 }}>
                 Occupied Rooms
               </Typography>
-              <Typography variant="h5" color="error.main">
+              <Typography variant="h4" sx={{ fontWeight: 700 }}>
                 {rooms.filter(room => !room.availability).length}
               </Typography>
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={12} md={3}>
-          <Card>
-            <CardContent>
-              <Typography color="textSecondary" gutterBottom>
+        <Grid item xs={12} sm={6} md={3}>
+          <Card 
+            sx={{ 
+              height: '100%',
+              background: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
+              color: 'white',
+              position: 'relative',
+              overflow: 'hidden',
+              '&:before': {
+                content: '""',
+                position: 'absolute',
+                top: 0,
+                right: 0,
+                width: '100px',
+                height: '100px',
+                background: 'rgba(255,255,255,0.1)',
+                borderRadius: '50%',
+                transform: 'translate(30px, -30px)',
+              }
+            }}
+          >
+            <CardContent sx={{ position: 'relative', zIndex: 1 }}>
+              <Typography variant="body2" sx={{ opacity: 0.9, mb: 1 }}>
                 Average Price
               </Typography>
-              <Typography variant="h5">
+              <Typography variant="h4" sx={{ fontWeight: 700 }}>
                 {rooms.length > 0 
                   ? formatPrice(rooms.reduce((sum, room) => sum + room.pricePerNight, 0) / rooms.length)
                   : '$0'
@@ -282,59 +406,135 @@ const RoomList = () => {
       </Grid>
 
       {/* Rooms Table */}
-      <TableContainer component={Paper}>
+      <TableContainer 
+        component={Paper}
+        sx={{ 
+          borderRadius: 3,
+          overflow: 'hidden',
+          boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+        }}
+      >
         <Table>
           <TableHead>
-            <TableRow>
-              <TableCell>Room Number</TableCell>
-              <TableCell>Type</TableCell>
-              <TableCell>Price/Night</TableCell>
-              <TableCell>Availability</TableCell>
-              <TableCell>Amenities</TableCell>
-              <TableCell>Description</TableCell>
-              <TableCell align="center">Actions</TableCell>
+            <TableRow sx={{ backgroundColor: '#f8fafc' }}>
+              <TableCell sx={{ fontWeight: 600, color: '#374151', py: 2 }}>
+                Room Number
+              </TableCell>
+              <TableCell sx={{ fontWeight: 600, color: '#374151', py: 2 }}>
+                Type
+              </TableCell>
+              <TableCell sx={{ fontWeight: 600, color: '#374151', py: 2 }}>
+                Price/Night
+              </TableCell>
+              <TableCell sx={{ fontWeight: 600, color: '#374151', py: 2 }}>
+                Availability
+              </TableCell>
+              <TableCell sx={{ fontWeight: 600, color: '#374151', py: 2 }}>
+                Amenities
+              </TableCell>
+              <TableCell sx={{ fontWeight: 600, color: '#374151', py: 2 }}>
+                Description
+              </TableCell>
+              <TableCell align="center" sx={{ fontWeight: 600, color: '#374151', py: 2 }}>
+                Actions
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {rooms.map((room) => (
-              <TableRow key={room._id} hover>
-                <TableCell>
-                  <Typography variant="subtitle2" fontWeight="bold">
-                    {room.roomNumber}
-                  </Typography>
+            {rooms.map((room, index) => (
+              <TableRow 
+                key={room._id} 
+                hover
+                sx={{ 
+                  '&:hover': {
+                    backgroundColor: 'rgba(37, 99, 235, 0.04)',
+                    transform: 'scale(1.01)',
+                    transition: 'all 0.2s ease-in-out',
+                  },
+                  '&:nth-of-type(even)': {
+                    backgroundColor: 'rgba(248, 250, 252, 0.5)',
+                  },
+                  borderBottom: '1px solid #e2e8f0',
+                }}
+              >
+                <TableCell sx={{ py: 2 }}>
+                  <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                    <Box
+                      sx={{
+                        width: 40,
+                        height: 40,
+                        borderRadius: 2,
+                        backgroundColor: 'rgba(37, 99, 235, 0.1)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        mr: 2,
+                      }}
+                    >
+                      <Typography variant="body2" fontWeight="bold" color="primary">
+                        {room.roomNumber}
+                      </Typography>
+                    </Box>
+                    <Typography variant="subtitle2" fontWeight="600" color="text.primary">
+                      {room.roomNumber}
+                    </Typography>
+                  </Box>
                 </TableCell>
-                <TableCell>
+                <TableCell sx={{ py: 2 }}>
                   <Chip 
                     label={room.type} 
-                    color="primary" 
-                    variant="outlined"
+                    sx={{ 
+                      backgroundColor: 'rgba(37, 99, 235, 0.1)',
+                      color: '#1d4ed8',
+                      fontWeight: 500,
+                      border: '1px solid rgba(37, 99, 235, 0.2)',
+                    }}
                     size="small"
                   />
                 </TableCell>
-                <TableCell>
-                  <Typography variant="subtitle2" fontWeight="bold">
+                <TableCell sx={{ py: 2 }}>
+                  <Typography variant="subtitle2" fontWeight="600" color="text.primary">
                     {formatPrice(room.pricePerNight)}
                   </Typography>
                 </TableCell>
-                <TableCell>
+                <TableCell sx={{ py: 2 }}>
                   <Chip
                     label={room.availability ? 'Available' : 'Occupied'}
-                    color={room.availability ? 'success' : 'error'}
+                    sx={{
+                      backgroundColor: room.availability 
+                        ? 'rgba(16, 185, 129, 0.1)' 
+                        : 'rgba(239, 68, 68, 0.1)',
+                      color: room.availability ? '#059669' : '#dc2626',
+                      fontWeight: 500,
+                      cursor: 'pointer',
+                      '&:hover': {
+                        backgroundColor: room.availability 
+                          ? 'rgba(16, 185, 129, 0.2)' 
+                          : 'rgba(239, 68, 68, 0.2)',
+                        transform: 'scale(1.05)',
+                      },
+                      transition: 'all 0.2s ease-in-out',
+                    }}
                     size="small"
                     onClick={() => handleAvailabilityToggle(room)}
-                    style={{ cursor: 'pointer' }}
                   />
                 </TableCell>
-                <TableCell>
+                <TableCell sx={{ py: 2 }}>
                   {room.amenities && room.amenities.length > 0 ? (
-                    <Box>
+                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
                       {room.amenities.slice(0, 2).map((amenity, index) => (
                         <Chip
                           key={index}
                           label={amenity}
                           size="small"
                           variant="outlined"
-                          sx={{ mr: 0.5, mb: 0.5 }}
+                          sx={{ 
+                            fontSize: '0.75rem',
+                            height: 24,
+                            backgroundColor: 'rgba(124, 58, 237, 0.05)',
+                            borderColor: 'rgba(124, 58, 237, 0.2)',
+                            color: '#6d28d9',
+                          }}
                         />
                       ))}
                       {room.amenities.length > 2 && (
@@ -342,46 +542,71 @@ const RoomList = () => {
                           label={`+${room.amenities.length - 2}`}
                           size="small"
                           variant="outlined"
-                          color="secondary"
+                          sx={{ 
+                            fontSize: '0.75rem',
+                            height: 24,
+                            backgroundColor: 'rgba(100, 116, 139, 0.1)',
+                            borderColor: 'rgba(100, 116, 139, 0.3)',
+                            color: '#64748b',
+                          }}
                         />
                       )}
                     </Box>
                   ) : (
-                    <Typography variant="body2" color="textSecondary">
+                    <Typography variant="body2" color="text.secondary" sx={{ fontStyle: 'italic' }}>
                       No amenities
                     </Typography>
                   )}
                 </TableCell>
-                <TableCell>
+                <TableCell sx={{ py: 2 }}>
                   <Typography 
                     variant="body2" 
-                    color="textSecondary"
+                    color="text.secondary"
                     sx={{ 
                       maxWidth: 200,
                       overflow: 'hidden',
                       textOverflow: 'ellipsis',
-                      whiteSpace: 'nowrap'
+                      whiteSpace: 'nowrap',
+                      lineHeight: 1.4,
                     }}
                   >
                     {room.description || 'No description'}
                   </Typography>
                 </TableCell>
-                <TableCell align="center">
-                  <IconButton
-                    component={Link}
-                    to={`/edit/${room._id}`}
-                    color="primary"
-                    size="small"
-                  >
-                    <EditIcon />
-                  </IconButton>
-                  <IconButton
-                    onClick={() => setDeleteDialog({ open: true, room })}
-                    color="error"
-                    size="small"
-                  >
-                    <DeleteIcon />
-                  </IconButton>
+                <TableCell align="center" sx={{ py: 2 }}>
+                  <Box sx={{ display: 'flex', gap: 1, justifyContent: 'center' }}>
+                    <IconButton
+                      component={Link}
+                      to={`/edit/${room._id}`}
+                      sx={{
+                        backgroundColor: 'rgba(37, 99, 235, 0.1)',
+                        color: '#2563eb',
+                        '&:hover': {
+                          backgroundColor: 'rgba(37, 99, 235, 0.2)',
+                          transform: 'scale(1.1)',
+                        },
+                        transition: 'all 0.2s ease-in-out',
+                      }}
+                      size="small"
+                    >
+                      <EditIcon fontSize="small" />
+                    </IconButton>
+                    <IconButton
+                      onClick={() => setDeleteDialog({ open: true, room })}
+                      sx={{
+                        backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                        color: '#ef4444',
+                        '&:hover': {
+                          backgroundColor: 'rgba(239, 68, 68, 0.2)',
+                          transform: 'scale(1.1)',
+                        },
+                        transition: 'all 0.2s ease-in-out',
+                      }}
+                      size="small"
+                    >
+                      <DeleteIcon fontSize="small" />
+                    </IconButton>
+                  </Box>
                 </TableCell>
               </TableRow>
             ))}
